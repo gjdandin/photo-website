@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <!--Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/view-template.css' %}">
+    <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <script src="{% static 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
+
+    <title>{{image.title}}</title>
+
+    <style>
+        body {
+        padding-top: 60px;
+        }
+
+        .footer-distributed {
+            position:fixed;
+            bottom:0;
+            left:0;
+        }
+    </style>
+
+</head>
+<body>
+
+<!--NavBar-->
+    {% block navbar %}
+        {% include 'blog/navbar.html' %}
+    {% endblock %}
+<!--end navbar -->
+
+
+    <!-- 	Start product image & Information -->
+    <div id="container">
+        <div class="product-image">
+            <img src="{{ image.image.url }}">
+
+    <!-- 	product Information-->
+            <div class="info">
+                <h2>Image Information</h2>
+                <ul>
+                    <li><strong>Image Title: </strong>{{image.title}}</li>
+                    <li><strong>Album: </strong>{{image.album}}</li>
+                    <li><strong>Image ID: </strong>{{image.id}}</li>
+                    <li><strong>Last Changed: </strong>{{image.created_at}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--  End product image & Information  -->
+
+    <div class="btn-container" style="text-align:center;">
+        <!-- Edit Button span class="buy" -->
+        <button class="btn" style="background:#e3f409;margin-right:5px;">
+            <span class="buy">
+                <a href="{% url 'image_edit' image.id %}" style="text-decoration: none;color: inherit;"><em>Edit Image</em></a>
+            </span>
+        </button>
+        <!-- End Edit Button-->
+
+        <!-- Start Delete Button-->
+        <button class="btn" style="background: #d93636;margin-left:5px;">
+            <span class="buy">
+                <a href="{% url 'delete_image' image.id %}" style="text-decoration: none;color: inherit;"><em>Delete Image</em></a>
+            </span>
+        </button>
+        <!-- End Delete Button-->
+    </div>
+
+    {% block overlay-menu %}
+        {% include 'blog/overlay.html' %}
+    {% endblock %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+
+<script src="{% static 'js/plugins.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

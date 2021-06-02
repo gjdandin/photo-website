@@ -1,0 +1,51 @@
+.scrollToTopBtn {
+  display: inline-block;
+  background-color: #090909;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border:none;
+  border-radius: 50%;
+  opacity: 0;
+
+  /* place it at the bottom right corner */
+  position: fixed;
+  bottom: 60px;
+  right: 30px;
+  /* keep it at the top of everything else */
+  z-index: 100;
+  /* also add a translate effect */
+  transform: translateY(100px);
+  /* and a transition */
+  transition: all .5s ease
+}
+
+.scrollToTopBtn::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+
+.scrollToTopBtn:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+
+.scrollToTopBtn:active{
+  background-color: #555;
+}
+
+@media (min-width: 500px) {
+    .scrollToTopBtn {
+    margin: 30px;
+  }
+}
+
+.showBtn {
+  opacity: 1;
+  transform: translateY(0)
+}

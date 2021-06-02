@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Contact</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/contact.css' %}">
+		<link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+		<noscript><link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" ></noscript>
+		<link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+		<style>
+			nav .logo em {
+				font-style: normal;
+			}
+		</style>
+	</head>
+
+
+	<body class="is-preload">
+
+	<!--NavBar-->
+	{% block navbar %}
+		{% include 'blog/navbar.html' %}
+	{% endblock %}
+	<!--end navbar -->
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+							<div class="logo"><span class="icon fa-comment-dots"></span></div>
+							{% if messages %}
+							<div class="alert alert-success alert-dismissible">
+								<!-- messages -->
+								<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+								{% for message in messages %}
+								<p id="messages" style="color:black;">{{message}}</p>
+								{% endfor %}
+							</div>
+							{% endif %}
+							<h2>Contact Us</h2>
+							<p>Feel free to message us here directly or through our social media :)</p>
+						</div>
+					</section>
+
+				<!-- Form-->
+					<section id="contact_us">
+						<div class="inner">
+							<h2 class="major">Get in touch</h2>
+							<p>Please write your name, email address and a message below if you have any questions.
+							We will be happy to contact you directly and answer your questions as soon as possible.</p>
+
+							<!-- Contact form -->
+							<form method="POST">
+								{% csrf_token %}
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name">
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="email" name="email" id="email">
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="4"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+							<ul class="contact">
+								<li class="icon solid fa-home">
+									Maren Photo<br />
+									Risalléen 16C<br />
+									Oslo, Norway
+								</li>
+								<li class="icon solid fa-phone">(000) 000-0000</li>
+								<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
+								<li class="icon brands fa-twitter"><a href="#">twitter.com/untitled-tld</a></li>
+								<li class="icon brands fa-facebook-f"><a href="#">facebook.com/untitled-tld</a></li>
+								<li class="icon brands fa-instagram"><a href="#">instagram.com/fotoaarnes</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+		{% block footer %}
+			{% include 'blog/footer.html' %}
+		{% endblock %}
+
+		<!--Start Overlay -->
+		{% block overlay-menu %}
+			{% include 'blog/overlay.html' %}
+		{% endblock %}
+		<!--End Overlay -->
+
+		<!-- Scripts -->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+			<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+			<script src="{% static 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
+
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
+
+		<!-- non critical css -->
+
+
+	</body>
+</html>

@@ -1,0 +1,144 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+    <style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			background: #283135 !important;
+		}
+		.user_card {
+			width: 600px;
+			margin-top: auto;
+			margin-bottom: auto;
+			background: #3C6E71;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			padding: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+
+		}
+
+		.form_container {
+			margin-top: 20px;
+		}
+		#form-title{
+			color: #fff;
+        }
+
+
+		.login_btn {
+		    margin-left: 32px;
+			width: 80%;
+			background: #249BE5 !important;
+			color: white !important;
+		}
+		.login_btn:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+		.login_container {
+			padding: 0 2rem;
+        }
+        }
+		.input-group-text {
+			background: #f7ba5b !important;
+			color: white !important;
+			border: 0 !important;
+			border-radius: 0.25rem 0 0 0.25rem !important;
+		}
+		.input_user,
+		.input_pass:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+		.image-preview {
+		    width: 400px;
+		    height: 200px;
+		}
+		.btn btn-info {
+		    background: #249BE5 !important;
+		}
+
+
+    </style>
+
+<body>
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center">
+
+
+					<h3 id="form-title">Upload Image</h3>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+                    <form method="POST" action="" enctype="multipart/form-data" class="bootstrap4">
+                      {% csrf_token %}
+                        <div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-keyboard"></i></span>
+							</div>
+							<input type="text" name="title" placeholder="Image Title" class="form-control">
+						</div>
+
+                        <div class="input-group mb-2">
+                          <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-comment"></i></span>
+                          </div>
+                          <textarea class="form-control" placeholder="Image Description"></textarea>
+                        </div>
+
+                        <div class="input-group mb-2">
+                            <div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-images"></i></span>
+							</div>
+                            <input class="btn login_btn" type="file" name="image" placeholder="Choose Image File" class="form-control">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                            </div>
+                            <input type="number" name="id" min="1" placeholder="Give a number ID" class="form-control">
+                        </div>
+                      <input class="btn login_btn" type="submit" name="Upload Image">
+                    </form>
+                </div>
+                <div class="container h-100">
+                    <div class="d-flex justify-content-center h-100">
+                        <div class="user_card">
+                            <div class="d-flex justify-content-center">
+                                {% if img_obj %}
+                                  <img src="{{ img_obj.image.url}}" alt="Image Missing" class="image-preview">
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <div class="d-flex justify-content-center mt-3 login_container">
+                                <a href="{% url 'home'%}" class="btn btn-info" style="margin-left:150">Back To Homepage</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+

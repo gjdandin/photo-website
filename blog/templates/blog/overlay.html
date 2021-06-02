@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Overlay Menu</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+     <section class="overlay-menu">
+      <div class="container">
+        <div class="row">
+          <div class="main-menu">
+              <ul>
+                  {% if user.is_authenticated %}
+                  <span class="hello-msg">Hello, {{request.user}}</span> - <span class="hello-msg"><a href="{% url 'logout' %}">Logout</a></span>
+                  {% endif %}
+                  <li>
+                      <a href="{% url 'home' %}">Home</a>
+                  </li>
+                  <li>
+                      <a href="{% url 'view_all' %}">Portfolio</a>
+                  </li>
+                  <li>
+                      <a href="{% url 'about_us' %}">About Us</a>
+                  </li>
+                  <li>
+                      <a href="{% url 'contact' %}">Contact Us</a>
+                  </li>
+                  {% if user.is_authenticated %}
+                  <li>
+                      <a href="{% url 'post' %}">Upload Portfolio Image</a>
+                  </li>
+                  <li>
+                      <a href="{% url 'admin:index' %}">Admin Site(Create albums here)</a>
+                  </li>
+                  {% else %}
+                  <li>
+                      <a href="{% url 'login' %}">Login</a>
+                  </li>
+                  {% endif %}
+              </ul>
+              <p>Change your lens, change your story.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</body>
+</html>

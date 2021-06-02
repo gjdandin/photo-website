@@ -1,0 +1,339 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  		<title>Maren Photo</title>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <meta name="google-site-verification" content="zfaip5vS_3zENJC5cNxT5-nmfxFfMb1cbpBrVFMSFkU" />
+
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/scrollto.css' %}">
+
+        <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+        <style>
+            .footer-distributed{
+            background-color: #292c2f;
+	        background-image: linear-gradient(315deg, #2d3436 25%, #000000 74%);
+            }
+
+            .ipad-only {
+               display: none;
+             }
+
+             @media only screen and (device-width: 768px) {
+                  /* For general iPad layouts */
+                  .ipad-only {
+                   display: block;
+                 }
+                }
+        </style>
+        <!--styling fix for ipad extra portfolio div -->
+    </head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="{% url 'home' %}">Maren<em>Photo</em></a>
+        </div>
+        <div class="menu-icon">
+        <span></span>
+      </div>
+    </nav>
+
+    <!-- Start homepage video -->
+    <div id="video-container">
+        <div class="video-overlay"></div>
+        <div class="video-content">
+            <div class="inner">
+              <h1>Maren <em>Photo</em></h1>
+              <p>Change your lens, change your story</p>
+              <p>Scroll Down To See The Image Gallery</p>
+                <div class="scroll-icon">
+                  <a class="scroll-down" href="#"><span></span><span></span><span></span></a>
+                </div>
+            </div>
+        </div>
+        <video autoplay="autoplay" loop="loop" muted playsinline id="intro">
+        	<source src="{% static 'loop-galaxy.mp4' %}" type="video/mp4" />
+        </video>
+    </div>
+    <!-- endhomepage video -->
+
+    <!-- Start fullscreen portfolio -->
+    <div class="full-screen-portfolio" id="portfolio" >
+        <div class="container-fluid" >
+            <div class="col-md-4 col-sm-6">
+                <div class="portfolio-item">
+                    <a href="{{ image1.image.url }}" data-lightbox="image-1" data-title="{{ image1.title }} - <a href={{ image1.image.url }}>Full resolution</a>"><div class="thumb">
+                        <div class="hover-effect">
+                            <div class="hover-content">
+                                <h1><em>{{ image1.title }}</em></h1>
+                                <p>{{ image1.body }}</p>
+                            </div>
+                        </div>
+                        <div class="image">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'image_view' image1.id %}">
+                                <img src="{{ image1.thumb_image.url }}">
+                            </a>
+                            {% else %}
+                                <img src="{{ image1.thumb_image.url }}">
+                            {% endif %}
+                        </div>
+                    </div></a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="portfolio-item">
+                    <a href="{{ image2.image.url }}" data-lightbox="image-1" data-title="{{ image2.title }} - <a href={{ image2.image.url }}>Full resolution</a>"><div class="thumb">
+                        <div class="hover-effect">
+                            <div class="hover-content">
+                                <h1><em>{{ image2.title }}</em></h1>
+                                <p>{{ image2.body }}</p>
+                            </div>
+                        </div>
+                        <div class="image">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'image_view' image2.id %}">
+                                <img src="{{ image2.thumb_image.url }}">
+                            </a>
+                            {% else %}
+                                <img src="{{ image2.thumb_image.url }}">
+                            {% endif %}
+                        </div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="portfolio-item">
+                    <a href="{{ image3.image.url }}" data-lightbox="image-1" data-title="{{ image3.title }} - <a href={{ image3.image.url }}>Full resolution</a>"><div class="thumb">
+                        <div class="hover-effect">
+                            <div class="hover-content">
+                                <h1><em>{{ image3.title }}</em></h1>
+                                <p>{{ image3.body }}</p>
+                            </div>
+                        </div>
+                        <div class="image">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'image_view' image3.id %}">
+                                <img src="{{ image3.thumb_image.url }}">
+                            </a>
+                            {% else %}
+                                <img src="{{ image3.thumb_image.url }}">
+                            {% endif %}
+                        </div>
+                    </div></a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="portfolio-item">
+                    <a href="{{ image4.image.url }}" data-lightbox="image-1" data-title="{{ image4.title }} - <a href={{ image4.image.url }}>Full resolution</a>"><div class="thumb">
+                        <div class="hover-effect">
+                            <div class="hover-content">
+                                <h1><em>{{ image4.title }}</em></h1>
+                                <p>{{ image4.body }}</p>
+                            </div>
+                        </div>
+                        <div class="image">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'image_view' image4.id %}">
+                                <img src="{{ image4.thumb_image.url }}">
+                            </a>
+                            {% else %}
+                                <img src="{{ image4.thumb_image.url }}">
+                            {% endif %}
+                        </div>
+                    </div></a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="portfolio-item">
+                    <a href="{{ image5.image.url }}" data-lightbox="image-1" data-title="{{ image5.title }} - <a href={{ image5.image.url }}>Full resolution</a>"><div class="thumb">
+                        <div class="hover-effect">
+                            <div class="hover-content">
+                                <h1><em>{{ image5.title }}</em></h1>
+                                <p>{{ image5.body }}</p>
+                            </div>
+                        </div>
+                        <div class="image">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'image_view' image5.id %}">
+                                <img src="{{ image5.thumb_image.url }}">
+                            </a>
+                            {% else %}
+                                <img src="{{ image5.thumb_image.url }}">
+                            {% endif %}
+                        </div>
+                    </div></a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="portfolio-item">
+                    <a href="{{ image6.image.url }}" data-lightbox="image-1" data-title="{{ image6.title }} - <a href={{ image6.image.url }}>Full resolution</a>"><div class="thumb">
+                        <div class="hover-effect">
+                            <div class="hover-content">
+                                <h1><em>{{ image6.title }}</em></h1>
+                                <p>{{ image6.body }}</p>
+                            </div>
+                        </div>
+                        <div class="image">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'image_view' image6.id %}">
+                                <img src="{{ image6.thumb_image.url }}">
+                            </a>
+                            {% else %}
+                                <img src="{{ image6.thumb_image.url }}">
+                            {% endif %}
+                        </div>
+                    </div></a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="portfolio-item">
+                    <a href="{{ image7.image.url }}" data-lightbox="image-1" data-title="{{ image7.title }} - <a href={{ image7.image.url }}>Full resolution</a>"><div class="thumb">
+                        <div class="hover-effect">
+                            <div class="hover-content">
+                                <h1><em>{{ image7.title }}</em></h1>
+                                <p>{{ image7.body }}</p>
+                            </div>
+                        </div>
+                        <div class="image">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'image_view' image7.id %}">
+                                <img src="{{ image7.thumb_image.url }}">
+                            </a>
+                            {% else %}
+                                <img src="{{ image7.thumb_image.url }}">
+                            {% endif %}
+                        </div>
+                    </div></a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="portfolio-item">
+                    <a href="{{ image8.image.url }}" data-lightbox="image-1" data-title="{{ image8.title }} - <a href={{ image8.image.url }}>Full resolution</a>"><div class="thumb">
+                        <div class="hover-effect">
+                            <div class="hover-content">
+                                <h1><em>{{ image8.title }}</em></h1>
+                                <p>{{ image8.body }}</p>
+                            </div>
+                        </div>
+                        <div class="image">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'image_view' image8.id %}">
+                                <img src="{{ image8.thumb_image.url }}">
+                            </a>
+                            {% else %}
+                                <img src="{{ image8.thumb_image.url }}">
+                            {% endif %}
+                        </div>
+                    </div></a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+            	<div class="portfolio-item">
+                	<a href="{{ image9.image.url }}" data-lightbox="image-1" data-title="{{ image9.title }} - <a href={{ image9.image.url }}>Full resolution</a>"><div class="thumb">
+                        <div class="hover-effect">
+                            <div class="hover-content">
+                                <h1><em>{{ image9.title }}</em></h1>
+                                <p>{{ image9.body }}</p>
+                            </div>
+                        </div>
+                        <div class="image">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'image_view' image9.id %}">
+                                <img src="{{ image9.thumb_image.url }}">
+                            </a>
+                            {% else %}
+                                <img src="{{ image9.thumb_image.url }}">
+                            {% endif %}
+                        </div>
+                    </div></a>
+                </div>
+            </div>
+
+            <!--Ipad only - 10th portfolio image -->
+            <div class="ipad-only">
+                <div class="col-md-4 col-sm-6">
+                    <div class="portfolio-item">
+                        <a href="{{ image10.image.url }}" data-lightbox="image-1" data-title="{{ image10.title }} - <a href={{ image10.image.url }}>Full resolution</a>"><div class="thumb">
+                            <div class="hover-effect">
+                                <div class="hover-content">
+                                    <h1><em>{{ image10.title }}</em></h1>
+                                    <p>{{ image10.body }}</p>
+                                </div>
+                            </div>
+                            <div class="image">
+                                {% if user.is_authenticated %}
+                                <a href="{% url 'image_view' image10.id %}">
+                                    <img src="{{ image10.thumb_image.url }}">
+                                </a>
+                                {% else %}
+                                    <img src="{{ image10.thumb_image.url }}">
+                                {% endif %}
+                            </div>
+                        </div></a>
+                    </div>
+                </div>
+            </div>
+            <!-- end ipad -->
+        </div>
+    </div>
+    <!--End fullscreen portfolio -->
+
+
+    <!-- Start footer -->
+    {% block footer %}
+        {% include 'blog/footer.html' %}
+    {% endblock %}
+    <!-- End footer -->
+
+
+
+    <!--Start Overlay -->
+    {% block overlay-menu %}
+        {% include 'blog/overlay.html' %}
+    {% endblock %}
+    <!--End overlay-->
+
+    <!--Start scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+    <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+    
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
+
+    <script>
+        var vid = document.getElementById("intro");
+        vid.defaultMuted = true;
+
+         $(function() {
+            $('.scroll-down').click (function() {
+              $('html, body').animate({scrollTop: $('#portfolio').offset().top }, 'slow');
+              return false;
+            });
+          });
+    </script>
+    <!-- end scripts -->
+
+    <!-- Non-critical css -->
+    <link rel="stylesheet" href="{% static 'css/light-box.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontAwesome.css' %}">
+
+    
+</body>
+</html>

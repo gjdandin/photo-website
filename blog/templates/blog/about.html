@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>About Us</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+		<noscript><link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" ></noscript>
+		<link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+
+
+		<style>
+			nav .logo em {
+        		font-style: normal;
+			}
+			overlay-menu {
+			 .row {
+				display: block;
+				}
+			}
+		</style>
+
+	</head>
+	<body class="is-preload">
+
+		<!--NavBar-->
+		{% block navbar %}
+			{% include 'blog/navbar.html' %}
+		{% endblock %}
+		<!--end navbar -->
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+							<div class="logo"><span class="icon fa-gem"></span></div>
+							<h2>This is Maren Photo</h2>
+							<p>One-of-a-kind photography services at your leisure.</p>
+						</div>
+					</section>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+
+						<!-- One -->
+							<section id="one" class="wrapper spotlight style1">
+								<div class="inner">
+									<a href="#" class="image"><img src="{% static 'portraits/Marenphoto.JPG' %}" alt="" /></a>
+									<div class="content">
+										<h2 class="major">Maren Tangstad Aarnes</h2>
+										<p>Work in progress</p>
+									</div>
+								</div>
+							</section>
+
+						<!-- Two -->
+							<section id="two" class="wrapper alt spotlight style2">
+								<div class="inner">
+									<a href="#" class="image"><img src="{% static 'solidstate-images/pic02.jpg' %}" /></a>
+									<div class="content">
+										<h2 class="major">Anthonia Hammer</h2>
+										<p>Work in progress</p>
+									</div>
+								</div>
+							</section>
+
+						<!-- Three -->
+							<section id="three" class="wrapper spotlight style3">
+								<div class="inner">
+									<a href="#" class="image"><img src="{% static 'solidstate-images/pic03.jpg' %}" alt="" /></a>
+									<div class="content">
+										<h2 class="major">Pricing</h2>
+										<p>Work in progress</p>
+										<a href="#" class="special">Learn more</a>
+									</div>
+								</div>
+							</section>
+
+						<!-- Four -->
+							<section id="four" class="wrapper alt style1">
+								<div class="inner">
+									<h2 class="major">Projects</h2>
+									<p>Work in progress</p>
+									<section class="features">
+										<article>
+											<a href="#" class="image"><img src="{% static 'solidstate-images/pic04.jpg' %}" alt="" /></a>
+											<h3 class="major">Afrika</h3>
+											<p>Work in progress</p>
+											<a href="{% url 'view_all' %}?album=2" class="special">Learn more</a>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="{% static 'solidstate-images/pic05.jpg' %}" alt="" /></a>
+											<h3 class="major">Project 2</h3>
+											<p>Work in progress</p>
+											<a href="#" class="special">Learn more</a>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="{% static 'solidstate-images/pic06.jpg' %}" alt="" /></a>
+											<h3 class="major">Project 3</h3>
+											<p>Work in progress</p>
+											<a href="#" class="special">Learn more</a>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="{% static 'solidstate-images/pic07.jpg' %}" alt="" /></a>
+											<h3 class="major">Project 4</h3>
+											<p>Work in progress</p>
+											<a href="#" class="special">Learn more</a>
+										</article>
+									</section>
+									<ul class="actions">
+										<li><a href="{% url 'view_all' %}" class="button">Browse All</a></li>
+									</ul>
+								</div>
+							</section>
+
+					</section>
+
+				<!-- Footer -->
+				{% block footer %}
+					{% include 'blog/footer.html' %}
+				{% endblock %}
+
+			</div>
+
+		<!--Start Overlay -->
+		{% block overlay-menu %}
+			{% include 'blog/overlay.html' %}
+		{% endblock %}
+		<!-- End Overlay -->
+
+		<!-- Scripts -->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+			<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+			<script src="{% static 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
+
+
+
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+			<script src="{% static 'js/main.js' %}"></script>
+
+
+
+
+	</body>
+</html>

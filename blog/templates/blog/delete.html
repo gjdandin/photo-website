@@ -1,0 +1,74 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+        <title>{{image.title}}</title>
+
+    <style>
+        body {
+            padding-top: 160px;
+        }
+
+        .img-responsive {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;
+        }
+
+        .footer-distributed {
+            bottom:0;
+            left:0;
+        }
+
+        @media screen and (max-width: 320px) {
+            .footer-distributed {
+                    bottom:revert;
+                }
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="flex-container">
+        <div class="d-flex justify-content-center align-items-center container">
+            <div class="col text-center">
+                <img src="{{ image.thumb_image.url }}" class="img-responsive">
+                    <div class="caption" style="padding-top: 20px;">
+                        <a href="{% url 'image_view' image.id %}">
+                            <p>Are you sure you want to delete "{{image}}"?</p>
+                        </a>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+
+    <form action="{% url 'delete_image' image.id %}" method="POST">
+        {% csrf_token %}
+         <div class="form-group">
+            <div class="col text-center">
+                <a class="btn btn-sm btn-warning" href="{% url 'home' %}" style="margin-right:10px;">Cancel</a>
+                {% if image.id not in essential %}
+                <input class="btn btn-sm btn-danger" type="submit" name="Confirm" value="Delete" style="margin-left:10px;">
+            </div>
+         </div>
+        {% else %}
+        <div class="form-group" style="padding:20px;">
+            <div class="col text-center">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-danger" role="alert">
+                            <strong>{{ message }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+    </form>
+</body>
+
+{% endblock %}

@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport">
+        <title>Upload Image</title>
+        <link rel="stylesheet" href="{% static 'css/upload.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+         .form-group2 {
+         padding-top: 20px;
+         }
+        </style>
+
+    </head>
+
+
+<body>
+    <div class="form-group2">
+        <div class="col text-left">
+            <a href="{% url 'home'%}" class="btn btn-outline-dark">To Homepage</a>
+        </div>
+    </div>
+
+
+
+    <div class="container py-5">
+
+        <!-- For demo purpose -->
+        <header class="text-white text-center">
+            <h1 class="display-4">Image upload</h1>
+            <p class="lead mb-0">Upload Your Portfolio Image</p>
+            <p class="mb-5 font-weight-light">Maren Photo</p>
+            <img src="https://res.cloudinary.com/mhmd/image/upload/v1564991372/image_pxlho1.svg" alt="" width="150" class="mb-4">
+        </header>
+
+
+        <form method="post" action="" enctype="multipart/form-data" class="bootstrap4">
+            <div class="row py-4">
+                <div class="col-lg-6 mx-auto">
+                      {% csrf_token %}
+                        <!-- Image Title input-->
+                        <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                            <!-- <input type="text" name="title" placeholder="Image Title" class="form-control border-0" placeholder="Image Title" required> -->
+                            <input type="text" name="title" class="form-control border-0" placeholder="Image Title" required>
+                        </div>
+
+                        <!-- Image Description input-->
+                        <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                            <input type="text" name="body" id="body" class="form-control border-0" placeholder="Image Description">
+                            <!-- <input id="body" type="text" name="body" class="form-control border-0" placeholder="Image Description"> -->
+                        </div>
+
+                         <!-- Image ID input-->
+                        <div class="form-row align-items-center">
+                            <div class="col-auto">
+                                <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                                        <input id=image-id type="number" name="id" class="form-control border-0" placeholder="Image ID" min={{image_count}} value="{{image_count}}">
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                 <small id="IdHelpBlock" class="form-text text-muted">
+                                      Change the ID. A default ID is automatically set.
+                                 </small>
+                            </div>
+                        </div>
+
+                        <!-- Upload image input-->
+                        <div class="input-group mb-3 px-5 py-2 rounded-pill bg-white shadow-sm">
+                            <div class="col-auto">
+                                <label class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose file</small>
+                                    <div class="col-auto">
+                                        <input type="file" name="image" placeholder="Choose Image File" class="form-control border-0" required>
+                                    </div>
+                                    <!-- <input id="image" type="file" name="image" class="form-control-file" required> -->
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Upload album input -->
+                        <div class="form-row align-items-center">
+                            <div class="col-auto">
+                                <label class="col-6 col-form-label" style="font-family: FontAwesome; color: black; ">Album:</label>
+                                <div class="input-group mb-3 px-3 py-2 rounded-pill bg-white shadow-sm">
+                                    {{form.album}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col text-center">
+                                <input class="btn btn-light" type="submit" name="Upload Image" value="Upload Image">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-auto">
+                                {% if form.errors %}
+                                <div class="alert alert-warning" role="alert">
+                                    {{form.errors}}
+                                </div>
+                                {% endif %}
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <div class="alert alert-success" role="alert">
+                                            <strong>{{ message }}</strong>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-auto">
+                                 <!-- Uploaded image area-->
+                                <p class="font-italic text-white text-center">The image uploaded will be rendered inside the box below.</p>
+                                {% if img_obj %}
+                                <div class="image-area mt-4"><img id="imageResult" src="{{ img_obj.image.url}}" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</html>

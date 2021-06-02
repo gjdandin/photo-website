@@ -1,0 +1,77 @@
+/* Pagination CSS */
+.card-deck {
+   display: none;
+}
+
+.card-deck.visible {
+display: block;
+}
+
+.content {
+display: none;
+}
+
+.scroll-icon {
+display: none;
+}
+/* End Pagination CSS */
+
+/* Page CSS */
+body {
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #2d3436 10%, #000000 74%);
+    height: 100%;
+    padding-top: 25px;
+    font-weight: 300;
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+  padding-top: 60px;
+}
+
+.grid-portfolio {
+    background: transparent;
+}
+
+nav {
+    background: transparent;
+}
+
+.footer-distributed{
+    background: transparent !important;
+}
+
+#filterform {
+    padding-bottom: 20px;
+}
+
+/* End Page CSS */
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .form-control {
+  display:initial;
+  }
+}

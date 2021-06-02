@@ -1,0 +1,130 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <style>
+        body {
+            padding-top: 160px;
+        }
+
+        .flex-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+        }
+
+        .footer-distributed {
+            position:fixed;
+            bottom:0;
+            left:0;
+        }
+
+        .flex-container {
+          margin: 0 auto;
+          background: black;
+          color: white;
+        }
+
+        @media screen and (max-width: 1366px) {
+            .form-group row {
+                align-items: center;
+                justify-content: center;
+            }
+            .row {
+            margin-left: 15px;
+            margin-right: 15px;
+            }
+
+            body {
+            padding-top: 80px;
+            }
+        }
+
+        @media screen and (max-height: 667px) {
+            .footer-distributed {
+                bottom:revert;
+            }
+        }
+
+
+    </style>
+    <div id="flex-container">
+        <div class="d-flex justify-content-center align-items-center container">
+            <form method="POST" enctype="multipart/form-data" class="bootstrap4">
+                {% csrf_token %}
+                  <!-- Image Title input-->
+                  <div class="form-group row text-center">
+                    <label for="title" class="col-4 col-form-label" style="font-family: Helvetica; color: white;">Title</label>
+                    <div class="col-8">
+                      <input id="title" name="title" type="text" class="form-control" value="{{image.title}}" required>
+                    </div>
+                  </div>
+
+                <!-- Image Body input-->
+                  <div class="form-group row text-center">
+                    <label for="body" class="col-4 col-form-label" style="font-family: Helvetica; color: white;">Description</label>
+                    <div class="col-8">
+                      <input id="body" name="body" type="text" class="form-control" value="{{image.body}}">
+                    </div>
+                  </div>
+
+                <!-- Image File input-->
+                <div class="form-group row text-center">
+                    <label for="image" class="col-4 col-form-label" style="font-family: Helvetica; color: white;">Image File</label>
+                    <div class="col-8">
+                        <input type="file" name="image" id="image" class="form-control border-0" value="{{image.image.url}}">
+                    </div>
+                </div>
+
+                <!-- Image Album input-->
+                <div class="form-group row">
+                    <label class="col-4 col-form-label" style="font-family: Helvetica; color: white;">Album:</label>
+                    <div class="col-8">
+                        {{form.album}}
+                    </div>
+                </div>
+
+                <!-- Image ID input-->
+                <div class="form-group row align-items-center">
+                    <label for="image-id" class="col-4 col-form-label" style="font-family: Helvetica; color: white;">Image ID</label>
+                    <div class="col-8">
+                        <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                            <input id=image-id type="number" name="id" class="form-control" max={{image.id}} min={{image.id}} value="{{image.id}}" required>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                         <small id="IdHelpBlock" class="form-text text-muted">
+                              Ignore this field. Default ID is automatically set.
+                         </small>
+                    </div>
+                </div>
+
+                <div class="form-group" id="submission">
+                    <div class="col text-center">
+                        <input class="btn btn-primary" type="submit" name="Edit Image" value="Edit Image">
+                    </div>
+                </div>
+
+                <div class="form-group" id="errors">
+                    <div class="col-auto">
+                        {% if form.errors %}
+                        <div class="alert alert-warning" role="alert">
+                            {{form.errors}}
+                        </div>
+                        {% endif %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-success" role="alert">
+                                    <strong>{{ message }} - <a href="{% url 'image_view' image.id %}">Click here to view the updated image</a></strong>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
