@@ -140,5 +140,7 @@ cython_debug/
 #secret keys
 .sc-keys
 .env
-/staticfiles/staticfiles/
+
+#Other local files
 ../(nongit) important vars/
+/staticfiles/
