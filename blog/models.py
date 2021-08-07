@@ -24,6 +24,7 @@ class Album(models.Model):
     title = models.CharField(max_length=128)
     created_at = models.DateTimeField(auto_now=True, blank=True)
 
+
     class Meta: #Order on primary key
         ordering = ['pk']
 

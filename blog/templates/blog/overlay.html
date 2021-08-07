@@ -6,6 +6,51 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <style>
+        .undercategory {
+            opacity: 0;
+            visibility: hidden;
+            max-height: 0px;
+            -webkit-transition: opacity 600ms, visibility 600ms;
+            transition: opacity 600ms, visibility 600ms;
+            display:block;
+            margin: 6px;
+        }
+        .pf:hover * {
+            visibility: visible;
+            opacity: 1;
+            animation: fade 1s;
+            max-height: 20px;
+        }
+        .pf:active * {
+            visibility: visible;
+            opacity: 1;
+            animation: fade 1s;
+            max-height: 20px;
+        }
+        .pf {
+            height: 34px;
+        }
+        .pf:hover {
+            height: 150px;
+            overflow:auto;
+         }
+         .pf:active {
+            height: 150px;
+            overflow:auto;
+         }
+        @keyframes fade {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+
+    </style>
 </head>
 <body>
      <section class="overlay-menu">
@@ -20,7 +65,13 @@
                       <a href="{% url 'home' %}">Home</a>
                   </li>
                   <li>
-                      <a href="{% url 'view_all' %}">Portfolio</a>
+                      <div class="pf" style="width:200px; margin:auto;">
+                      <a class="category" href="#">Portfolio</a>
+                            <a class="undercategory" style="font-size: 18px;" href="{% url 'view_all' %}">View All</a>
+                          {% for i in albums %}
+                            <a class="undercategory" style="font-size: 18px;" href="{% url 'view_all' %}?album={{i.id}}">{{i.title}}</a>
+                          {% endfor %}
+                      </div>
                   </li>
                   <li>
                       <a href="{% url 'about_us' %}">About Us</a>
@@ -46,6 +97,23 @@
         </div>
       </div>
     </section>
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("hover", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+              content.style.maxHeight = null;
+            } else {
+              content.style.maxHeight = content.scrollHeight + "px";
+            }
+          });
+        }
+    </script>
 
 </body>
 </html>

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from django.db.models import AutoField
 import os
 import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -194,3 +195,6 @@ LOGGING = {
         },
     },
 }
+
+#Autofield
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

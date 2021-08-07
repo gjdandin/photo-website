@@ -29,15 +29,18 @@ def home(request):
     image9 = next_in_order(image8, qs=images)
     image10 = next_in_order(image9, qs=images)
 
+    albums = Album.objects.all()
+
     context = {'image1':image1, 'image2':image2, 'image3':image3,
                'image4': image4, 'image5': image5, 'image6': image6,
                'image7': image7, 'image8': image8, 'image9':image9,
-               'image10':image10,
+               'image10':image10, 'albums':albums,
                }
 
     return render(request, 'blog/index.html', context)
 
 def loginPage(request):
+    albums = Album.objects.all()
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -51,7 +54,7 @@ def loginPage(request):
         else:
             messages.info(request, 'Username or Password is Incorrect.')
 
-    context={}
+    context={'albums':albums,}
     return render(request, 'blog/login.html', context)
 
 def logoutUser(request):
@@ -80,6 +83,7 @@ def image_upload_view(request):
 
 @login_required(login_url='login')
 def edit_image(request, pk):
+    albums = Album.objects.all()
     image = Image.objects.get(id=pk)
     img_obj = image.image
     form = EditImageForm(request.POST, request.FILES, instance=image)
@@ -93,11 +97,12 @@ def edit_image(request, pk):
             messages.info(request, 'Something went wrong. Double check correct ID and info then try again.')
     else:
         form = EditImageForm(instance=image)
-    context = {'form':form, 'img_obj':img_obj, 'image':image}
+    context = {'form':form, 'img_obj':img_obj, 'image':image, 'albums':albums}
     return render(request, 'blog/edit.html', context)
 
 @login_required(login_url='login')
 def delete_image(request, pk):
+    albums = Album.objects.all()
     image = Image.objects.get(id=pk)
     essential = range(1, 11)
     if request.method == "POST" and pk not in essential:
@@ -105,43 +110,48 @@ def delete_image(request, pk):
         return redirect('/')
     else:
         messages.info(request, 'Something went wrong. Pictures with ID 1 to 10 can only be edited, not deleted.')
-    context = {'image':image, 'essential':essential}
+    context = {'image':image, 'essential':essential, 'albums':albums}
     return render(request, 'blog/delete.html', context)
 
 @login_required(login_url='login')
 def image_view(request, pk):
+    albums = Album.objects.all()
     image = Image.objects.get(id=pk)
     img_obj = image.image
-    context = {'image':image, 'img_obj':img_obj}
+    context = {'image':image, 'img_obj':img_obj, 'albums':albums}
     return render(request, 'blog/view.html', context)
 
 def about_us(request):
-    context = {}
+    albums = Album.objects.all()
+    context = {'albums':albums}
     return render(request, 'blog/about.html', context)
 
 def view_all(request):
     images = Image.objects.all()
     myFilter = ImageFilter(request.GET, queryset=images)
     images = myFilter.qs
+    albums = Album.objects.all()
 
     context = {
         'images': images,
         'filter': myFilter,
+        'albums': albums,
     }
     return render(request, 'blog/grid.html', context)
 
-def view_big(request):
-    images = Image.objects.all()
-    myFilter = ImageFilter(request.GET, queryset=images)
-    images = myFilter.qs
-
-    context = {
-        'images': images,
-        'filter': myFilter,
-    }
-    return render(request, 'blog/big-view.html', context)
+# def view_big(request):
+#     images = Image.objects.all()
+#     myFilter = ImageFilter(request.GET, queryset=images)
+#     images = myFilter.qs
+#
+#     context = {
+#         'images': images,
+#         'filter': myFilter,
+#     }
+#     return render(request, 'blog/big-view.html', context)
 
 def contact(request):
+    albums = Album.objects.all()
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -163,4 +173,5 @@ def contact(request):
             return redirect('contact')
 
     form = ContactForm()
-    return render(request, 'blog/contact.html', {'form':form})
+    context = {'albums': albums, 'form':form}
+    return render(request, 'blog/contact.html', context)
