@@ -1,0 +1,87 @@
+(Ignore)Feature priority list:
+1. Image uploading (models)
+    - Style the create and update post with crispy forms/prebuilt templates/bootstrap
+    - Resize in home view to fit and full size in detail view of template
+2. User login/delete/update/edit system - optional
+    - need a profile template where you can delete/update/edit user and pictures/pic description
+3. Blog post system(with update/delete) - but exclusive to one user only - no comments?
+    or a template&view that is viewable admin only -
+    with inquiry form able to sent directly on website that only Maren could read? (Optional)
+4. About me - Picture of Maren and contact info
+    - Messaging system?
+5. alternative image portfolio views
+6. Password recovery
+7. Learn to edit templates more - Perhaps a logo?
+
+How to switch pc:
+1. change pyvenv.cfg
+2. set up BASE_DIR config in settings.py
+
+Tasks done:
+    - Make the first 9 images undeletable to avoid index errors. (Done)
+    - Set up the detailed image view template and view wise (done
+    - Toolbar top for all pages (Done - base.html)
+    - Choice field for album for image upload and image edit. (Done)
+    - Styled Edit/Delete views.
+    - View all images template (no filter)
+    - Installed django-filter
+    - Style the filter form, all in one row.
+    - Pagination of view all (load more)
+         - Load more pagination - how to : https://stackoverflow.com/questions/64163437/fix-javascript-loadmore-button-to-load-5-items-per-page-django
+    - Filter - Reveal when search is clicked, else hidden & add reset search query.
+    - Style the search button
+    - Grid (with container & row) and big version of images.html (Done)
+    - Set the overlay menu on a seperate overlay.html and use {% include 'overlay'.html %}
+    - Update created_at at each edit, can be viewed on image view as last updated(Done)
+    - href to full size (source) when clicked inside lightbox (caption) (Done)
+    - arrow skip upwards when loading more in view all page (grid & big).
+    - Changed footer (old-footer in templatemo-style.css as old-footer) with custom template one
+    - Make the search fields mobile responsive (inspect element -> mobile mode)  - auto center the bootstrapped fields
+    - Responsive padding on the overlay because it is fixed
+    - 10th div for ipad only at index
+    - Center the Filter button for big view (done)
+    - change the scrollup button (done)
+    - Change view.html to mobile friendly template (done)
+    - Better lightbox settings(done)
+
+Notes:
+    .grid-portfolio in templatemo-style.css original: 65px;
+
+(Focus) Imminent tasks:
+    - Make lightbox mobile responsive and centered auto
+    - Album list view - page
+    - Priser page
+    - Contact us Button in index right above downward arrow
+    - Om oss
+        - image hover div on services (project image then project link on overlay)
+        - Change all the images with own
+        - More about us div
+    - Social media links in footer.
+    - Transition animations - show more
+    - Set up mobile friendly with bootstrap
+    - Test all functionality thoroughly.
+    - Images to jpeg/svg
+    -
+
+
+    Small tasks:
+        - Show more button animation transition of pictures slow showing up
+        - border shadow
+        - css zoom when media is width 4k
+        - Navbar for image upload
+        - Bug  with load more button - still showing up even with no more images after album filter.
+        - Use Em (font) on rest of website
+        - Style the login
+        - Change font of lightbox text (non-fat)
+        - What footer colour for index?
+        - Make the footer links popout when hover
+        - Higher scroll up button for big-view
+
+
+
+    Maybe:
+    1. Search as you type, for search filter at all images.
+    https://openfolder.sh/django-tutorial-as-you-type-search-with-ajax
+    2. - Index is homepage to each album project or best images?
+        - href to project page(for guests in caption), each index image corresponds to one project? needs 9 projects(albums)
+    3.     - What to do with modal?
