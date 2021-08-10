@@ -1,4 +1,5 @@
 {% load static %}
+{% load filterstyleclass %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +44,7 @@
                                  <!--Title field -->
                                 <div class="form-group" style="padding-right: 10px;">
                                     <label for="title" class="col-4 col-form-label" style="color: white;">Title:</label>
-                                    <input type="text" name="title" id="title" class="form-control m-2" style="width: 110px; height:25px">
+                                    <input type="text" name="title" id="title" class="form-control m-2" style="width: 110px; height:34px">
                                 </div>
 
 
@@ -51,19 +52,19 @@
                                  <!-- ID field for admin only -->
                                 <div class="form-group" style="padding-right: 10px;">
                                  <label for="id" class="col-4 col-form-label" style="color: white;">ID:</label>
-                                 <input type="number" name="id" id="id" class="form-control m-2" style="width: 70px; height:25px">
+                                 <input type="number" name="id" id="id" class="form-control m-2" style="width: 70px; height:34px">
                                 </div>
 
                                  <!-- Album field -->
                                 <div class="form-group" style="padding-right: 10px;">
                                     <label class="col-4 col-form-label" style="color: white;">Album:</label>
-                                    {{ filter.form.album }}
+                                    {{ filter.form.album|addclass:'form-control form-control-sm' }}
                                 </div>
 
                                 <!-- User field -->
                                 <div class="form-group" style="padding-right: 10px;">
                                     <label class="col-4 col-form-label" style="color: white;">Photographer:</label>
-                                    {{ filter.form.user }}
+                                    {{ filter.form.user|addclass:'form-control form-control-sm' }}
                                 </div>
 
                                  {% else %}
@@ -71,13 +72,13 @@
                                  <!-- Album field -->
                                 <div class="form-group" style="padding-right: 10px;">
                                      <label class="col-4 col-form-label" style="color: white;">Album:</label>
-                                     {{ filter.form.album }}
+                                     {{ filter.form.album|addclass:'form-control form-control-sm' }}
                                 </div>
 
                                 <!-- User field -->
                                 <div class="form-group" style="padding-right: 10px;">
                                      <label class="col-4 col-form-label" style="color: white;">Photographer:</label>
-                                    {{ filter.form.user }}
+                                    {{ filter.form.user|addclass:'form-control form-control-sm' }}
                                 </div>
 
                                  {% endif %}
