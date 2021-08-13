@@ -1,5 +1,6 @@
 const thumbnails = $(".card-deck");
 let visibleThumbnails = 0;
+console.log('Visible thumbnails: ' visibleThumbnails);
 
 function showThumbnailsUntil(index) {
   for (var i = visibleThumbnails; i <= index; i++) {
@@ -14,11 +15,11 @@ function showThumbnailsUntil(index) {
 
 showThumbnailsUntil(5);
 
+
 $(".loadMore").on("click", function() {
   showThumbnailsUntil(visibleThumbnails + 3)
-  //$(".scroll-icon").show(); // Show the scroll up button
 
-  if (visibleThumbnails === thumbnails.length) {
+  if (visibleThumbnails === thumbnails.length || visibleThumbnails >= thumbnails.length) {
     $(".loadMore").fadeOut(200); //this will hide
     //button when length is 0
   }
