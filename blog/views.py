@@ -7,6 +7,7 @@ from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.core.mail import send_mail, BadHeaderError
+import os
 import datetime
 
 
@@ -152,6 +153,8 @@ def view_all(request):
 
 def contact(request):
     albums = Album.objects.all()
+    email_sender = os.environ.get('GMAIL_USER')
+    email_receiver = os.environ.get('SITE_EMAIL')
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -166,7 +169,7 @@ def contact(request):
             message = "\n".join(body.values())
 
             try:
-                send_mail(subject, message, 'maren.photo.notification@gmail.com', ['marni1@live.no'])
+                send_mail(subject, message, email_sender, [email_receiver])
                 messages.info(request, 'Message Sent. We will get back to you as soon as possible.')
             except BadHeaderError:
                 return HttpResponse('Invalid email header found. Revise header and try again.')
