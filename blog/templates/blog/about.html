@@ -7,20 +7,40 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 		<link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+		<link rel="stylesheet" href="{% static 'css/light-dark.css' %}">
 		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
 		<noscript><link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" ></noscript>
 		<link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-
-
 
 		<style>
 			nav .logo em {
         		font-style: normal;
 			}
+
 			overlay-menu {
 			 .row {
 				display: block;
 				}
+			}
+
+			.overlay-menu {
+				background: var(--overlay-color);
+			}
+
+			.overlay-menu ul li a {
+				color: var(--font-color);
+			}
+
+			.overlay-menu ul li a:hover {
+				color: var(--overlay-hover);
+			}
+
+			.overlay-menu p {
+				color: var(--font-color);
+			}
+
+			#wrapper a {
+				color: var(--font-color);
 			}
 		</style>
 
@@ -41,7 +61,7 @@
 						<div class="inner">
 							<div class="logo"><span class="icon fa-gem"></span></div>
 							<h2>This is Maren Photo</h2>
-							<p>There are no rules for good photographs, there are only good photographs.</p>
+							<p>There are no rules for good photographers, there are only good photographs.</p>
 						</div>
 					</section>
 
@@ -139,8 +159,6 @@
 			<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
 			<script src="{% static 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
 
-
-
 			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
 			<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
 			<script src="{% static 'assets/js/browser.min.js' %}"></script>
@@ -148,7 +166,8 @@
 			<script src="{% static 'assets/js/util.js' %}"></script>
 			<script src="{% static 'assets/js/main.js' %}"></script>
 
-			<script src="{% static 'js/main.js' %}"></script>
+			<script src="{% static 'js/grid-index-main.js' %}"></script>
+			<script src="{% static 'js/lightdarkmode.js' %}"></script>
 
 
 

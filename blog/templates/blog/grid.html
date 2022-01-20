@@ -11,15 +11,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
 
     <!-- Custom css -->
-    <link rel="stylesheet" href="{% static 'css/dark-button.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search-button.css' %}">
     <link rel="stylesheet" href="{% static 'css/scroll-top.css' %}">
     <link rel="stylesheet" href="{% static 'css/grid.css' %}">
+    <link rel="stylesheet" href="{% static 'css/light-dark.css' %}">
     <!-- End -->
 
     <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <style>
+        .overlay-menu {
+			background: var(--overlay-color);
+        }
+
+        .overlay-menu ul li a {
+            color: var(--font-color);
+        }
+
+        .overlay-menu ul li a:hover {
+            color: var(--overlay-hover);
+        }
+
+        .overlay-menu p {
+            color: var(--font-color);
+        }
+
+    </style>
 </head>
 
 <body>
@@ -42,42 +63,42 @@
                             <form method="get" class="form-inline justify-content-center" style="font-family: 'Helvetica', sans-serif; font-weight: 200;">
 
                                  <!--Title field -->
-                                <div class="form-group" style="padding-right: 10px;">
-                                    <label for="title" class="col-4 col-form-label" style="color: white;">Title:</label>
-                                    <input type="text" name="title" id="title" class="form-control m-2" style="width: 110px; height:34px">
+                                <div class="form-group">
+                                    <label for="title" class="col-4 col-form-label">Title:</label>
+                                    <input type="text" name="title" id="title" class="form-control m-2">
                                 </div>
 
 
                                  {% if user.is_authenticated %}
                                  <!-- ID field for admin only -->
-                                <div class="form-group" style="padding-right: 10px;">
-                                 <label for="id" class="col-4 col-form-label" style="color: white;">ID:</label>
-                                 <input type="number" name="id" id="id" class="form-control m-2" style="width: 70px; height:34px">
+                                <div class="form-group">
+                                 <label for="id" class="col-4 col-form-label">ID:</label>
+                                 <input type="number" name="id" id="id" class="form-control m-2" style="width: 70px;">
                                 </div>
 
                                  <!-- Album field -->
-                                <div class="form-group" style="padding-right: 10px;">
-                                    <label class="col-4 col-form-label" style="color: white;">Album:</label>
+                                <div class="form-group">
+                                    <label class="col-4 col-form-label">Album:</label>
                                     {{ filter.form.album|addclass:'form-control form-control-sm' }}
                                 </div>
 
                                 <!-- User field -->
-                                <div class="form-group" style="padding-right: 10px;">
-                                    <label class="col-4 col-form-label" style="color: white;">Photographer:</label>
+                                <div class="form-group">
+                                    <label class="col-4 col-form-label">Photographer:</label>
                                     {{ filter.form.user|addclass:'form-control form-control-sm' }}
                                 </div>
 
                                  {% else %}
 
                                  <!-- Album field -->
-                                <div class="form-group" style="padding-right: 10px;">
-                                     <label class="col-4 col-form-label" style="color: white;">Album:</label>
+                                <div class="form-group">
+                                     <label class="col-4 col-form-label">Album:</label>
                                      {{ filter.form.album|addclass:'form-control form-control-sm' }}
                                 </div>
 
                                 <!-- User field -->
-                                <div class="form-group" style="padding-right: 10px;">
-                                     <label class="col-4 col-form-label" style="color: white;">Photographer:</label>
+                                <div class="form-group">
+                                     <label class="col-4 col-form-label">Photographer:</label>
                                     {{ filter.form.user|addclass:'form-control form-control-sm' }}
                                 </div>
 
@@ -169,8 +190,9 @@
     <script src="{% static 'js/plugins.js' %}"></script>
     <script src="{% static 'js/pagination.js' %}"></script>
     <script src="{% static 'js/portfolio.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/grid-index-main.js' %}"></script>
     <script src="{% static 'js/grid-scrolltop.js' %}"></script>
+    <script src="{% static 'js/lightdarkmode.js' %}"></script>
 
     <!-- Pagination - script control the images ( show 6 images per page ) -->
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
@@ -179,6 +201,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/fontAwesome.css' %}">
     <link rel="stylesheet" href="{% static 'css/light-box.css' %}">
+
 
 </body>
 </html>

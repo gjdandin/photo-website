@@ -66,7 +66,7 @@
                   </li>
                   <li>
                       <div class="pf" style="width:200px; margin:auto;">
-                      <a class="category" href="#">Portfolio Album</a>
+                      <a class="category" href="#">Portfolio</a>
                             <a class="undercategory" style="font-size: 18px;" href="{% url 'view_all' %}">View All</a>
                           {% for i in albums %}
                             <a class="undercategory" style="font-size: 18px;" href="{% url 'view_all' %}?album={{i.id}}">{{i.title}}</a>

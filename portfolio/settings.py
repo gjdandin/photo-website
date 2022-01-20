@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 CDN_HOST = os.environ.get('AWS_S3_CUSTOM_DOMAIN')
 ALLOWED_HOSTS = ['https://maren-photo.herokuapp.com/', CDN_HOST, 'localhost',]
 
