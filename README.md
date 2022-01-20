@@ -30,6 +30,7 @@ It has the following (mobile/tablet responsive) pages:
   - boto3 and django-storages to connect to Amazon AWS CDN (bucket and cloudfront). The website is fully uploaded to Amazon cloud.
   - PILkit, pillow and easy-thumbnails to show images
   - django-compressor, django-compression-middleware, brotli and django-resized to compress large files and optimize page load.
+  - Django-heroku. Hosted on heroku free version.
   
   Future features:
   - Some pages are incomplete(content wise) and lacks text.
@@ -37,8 +38,8 @@ It has the following (mobile/tablet responsive) pages:
   
   Credits: 
   Some pages are based on the following templates, but are heavily modified:
-  https://templatemo.com/tm-520-highway
-  https://html5up.net/solid-state
+  - https://templatemo.com/tm-520-highway
+  - https://html5up.net/solid-state
   
   Special thanks to the YT channel Dennis Ivy for learning me how to create a django website:
   https://www.youtube.com/channel/UCTZRcDjjkVajGL6wd76UnGg
