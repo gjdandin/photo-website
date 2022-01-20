@@ -143,5 +143,8 @@ cython_debug/
 
 #Other local files
 ../(nongit) important vars/
+../backupvenv(desktop)/
+../laptopvenv/
+../venv/
 /portfolio/staticfiles/
 /staticfiles/
