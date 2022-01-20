@@ -33,4 +33,12 @@ It has the following (mobile/tablet responsive) pages:
   
   Future features:
   - Some pages are incomplete(content wise) and lacks text.
+  - Links to socials.
   
+  Credits: 
+  Some pages are based on the following templates, but are heavily modified:
+  https://templatemo.com/tm-520-highway
+  https://html5up.net/solid-state
+  
+  Special thanks to the YT channel Dennis Ivy for learning me how to create a django website:
+  https://www.youtube.com/channel/UCTZRcDjjkVajGL6wd76UnGg
