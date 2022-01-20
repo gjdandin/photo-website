@@ -1,6 +1,5 @@
 # photo-portfolio-website
 
-Website summary:
 A photographer portfolio website made for a client. 
 It has the following (mobile/tablet responsive) pages:
   
